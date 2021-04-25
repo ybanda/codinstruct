@@ -1,4 +1,4 @@
-# codinstruct
+# codinstruct - place to search everything and learn about technologies.
 
 ## Algorithms 
 
