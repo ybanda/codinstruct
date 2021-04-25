@@ -1,4 +1,20 @@
-# codinstruct - place to search everything and learn about technologies.
+# Codinstruct - place to search everything and learn about technologies.
+
+## Java 11
+
+## Spring
+
+## Spring Boot
+
+## Microservices
+
+## Angular 2+ to 9
+
+## React/Redux
+
+## Redis 
+
+## Oracle database
 
 ## Algorithms 
 
