@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import React, { Component } from 'react';
 import './App.css';
 
+import {CardList } from './components/card-list/card-list.component';
+
 class App extends Component {
   constructor() {
     super();
@@ -21,6 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+        <CardList name='Yash'>
+        {this.state.data.map(x=>{return <h1 key={x.id}>{x.name}</h1>})}
+        </CardList>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -28,12 +33,11 @@ class App extends Component {
           <button onClick={() => this.setState({ siteName: 'Hello After Login' })}> Login</button>
           
             Codinstruct {this.state.siteName}
-          {this.state.data.map(x=>{return <h1 key={x.id}>{x.name}</h1>})}
+         
         </header>
       </div>
     );
   }
-
 
 }
 export default App;
