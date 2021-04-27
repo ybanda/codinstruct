@@ -9,7 +9,8 @@ class App extends Component {
     super();
     this.state = {
       siteName: 'Hello',
-      data :[]
+      data :[],
+      searchField:''
     }
     
   }
@@ -20,6 +21,10 @@ class App extends Component {
      .then(users => this.setState({data : users , siteName : 'Hello Data Load Complete'}));
   }
   render() {
+    const { searchField, data } = this.state;
+    const filteredMonsters = data.filter(monster=>
+      monster.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+    );
     return (
       <div className="App">
         <header className="App-header">
@@ -30,7 +35,12 @@ class App extends Component {
           <button onClick={() => this.setState({ siteName: 'Hello After Login' })}> Login</button>
             Codinstruct {this.state.siteName}
         </header>
-        <CardList monsters={this.state.data}>
+        <input placeholder="Search Users" type="search" onChange={e=>{
+         this.setState({searchField: e.target.value},()=>{
+          console.log('Calling after setState async call :: '+e);
+         });
+        }}></input>
+        <CardList monsters={filteredMonsters}>
         </CardList>
       </div>
     );
