@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import {CardList } from './components/card-list/card-list.component';
+import {SearchBox } from './components/search-box/search-box.component';
 
 class App extends Component {
   constructor() {
@@ -35,11 +36,11 @@ class App extends Component {
           <button onClick={() => this.setState({ siteName: 'Hello After Login' })}> Login</button>
             Codinstruct {this.state.siteName}
         </header>
-        <input placeholder="Search Users" type="search" onChange={e=>{
+        <SearchBox placeholder="Search Users" type="search" handleChange={e=>{
          this.setState({searchField: e.target.value},()=>{
           console.log('Calling after setState async call :: '+e);
          });
-        }}></input>
+        }}></SearchBox>
         <CardList monsters={filteredMonsters}>
         </CardList>
       </div>
