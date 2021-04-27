@@ -1,25 +1,40 @@
 import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      siteName: 'Hello',
+      data :[]
+    }
+    
+  }
+  componentDidMount(){
+    console.log('Inside of Component Did Mount');
+    fetch('https://jsonplaceholder.typicode.com/users')
+     .then(resp => resp.json())
+     .then(users => this.setState({data : users , siteName : 'Hello Data Load Complete'}));
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <button onClick={() => this.setState({ siteName: 'Hello After Login' })}> Login</button>
+          
+            Codinstruct {this.state.siteName}
+          {this.state.data.map(x=>{return <h1 key={x.id}>{x.name}</h1>})}
+        </header>
+      </div>
+    );
+  }
 
+
+}
 export default App;
+
