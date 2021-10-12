@@ -1,6 +1,8 @@
 # Codinstruct - place to search everything and learn about technologies.
 
 ## Java
+
+### Declarations and Access Control
 - [ ] Create a class called Calculator and create 3 methods ( each of the method takes 2 parameters and return int for add , float for multiply and double for divide.)- add, multiply and divide. From the main method create an instance of the class created and call the methods to perform the calculator operations.
 - [ ] Create a class CalculatorChild and extend Calculator class and override the methods in the parent class.
 - [ ] Create 3 different types of packages and add a class(along with methods with various types of access modifiers - public, private , protected) in each of them and try to create instances for these classes from the calculator class. Just observe the behavior how access specifiers work.
